@@ -16,8 +16,7 @@ import java.util.List;
 public interface UserDao {
 
   @Insert
-  Single<Long> _insert(
-      User user); // When should we us user.setId(...) to update the object in memory.
+  Single<Long> _insert(User user); // When should we us user.setId(...) to update the object in memory.
 
   default Single<User> insert(User user) {
     return Single
