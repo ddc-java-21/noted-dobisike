@@ -31,6 +31,6 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "notes"
+rootProject.name = "noted"
 
 include(":app")
