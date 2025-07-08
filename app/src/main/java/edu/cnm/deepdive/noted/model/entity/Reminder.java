@@ -51,60 +51,52 @@ public class Reminder {
 
   public long getId() {return id;}
 
-  public Reminder setId(long id) {
+  public void setId(long id) {
     this.id = id;
-    return this;
   }
 
   @NonNull
   public String getTitle() {return title;}
 
-  public Reminder setTitle(@NonNull String title) {
+  public void setTitle(@NonNull String title) {
     this.title = title;
-    return this;
   }
 
   public String getDescription() {return description;}
 
-  public Reminder setDescription(String description) {
+  public void setDescription(String description) {
     this.description = description;
-    return this;
   }
 
   @NonNull
   public Instant getCreated() {return created;}
 
-  public Reminder setCreated(@NonNull Instant created) {
+  public void setCreated(@NonNull Instant created) {
     this.created = created;
-    return this;
   }
 
   @NonNull
   public Instant getModified() {return modified;}
 
-  public Reminder setModified(@NonNull Instant modified) {
+  public void setModified(@NonNull Instant modified) {
     this.modified = modified;
-    return this;
   }
 
   public LocalDateTime getSelectedDate() {return selectedDate;}
 
-  public Reminder setSelectedDate(LocalDateTime selectedDate) {
+  public void setSelectedDate(LocalDateTime selectedDate) {
     this.selectedDate = selectedDate;
-    return this;
   }
 
   public boolean isCompleted() {return completed;}
 
-  public Reminder setCompleted(boolean completed) {
+  public void setCompleted(boolean completed) {
     this.completed = completed;
-    return this;
   }
 
   public long getUserId() {return userId;}
 
-  public Reminder setUserId(long userId) {
+  public void setUserId(long userId) {
     this.userId = userId;
-    return this;
   }
 }

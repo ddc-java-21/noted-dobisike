@@ -51,60 +51,52 @@ public class Task {
 
   public long getId() {return id;}
 
-  public Task setId(long id) {
+  public void setId(long id) {
     this.id = id;
-    return this;
   }
 
   @NonNull
   public String getTitle() {return title;}
 
-  public Task setTitle(@NonNull String title) {
+  public void setTitle(@NonNull String title) {
     this.title = title;
-    return this;
   }
 
   public String getDescription() {return description;}
 
-  public Task setDescription(String description) {
+  public void setDescription(String description) {
     this.description = description;
-    return this;
   }
 
   @NonNull
   public Instant getCreated() {return created;}
 
-  public Task setCreated(@NonNull Instant created) {
+  public void setCreated(@NonNull Instant created) {
     this.created = created;
-    return this;
   }
 
   @NonNull
   public Instant getModified() {return modified;}
 
-  public Task setModified(@NonNull Instant modified) {
+  public void setModified(@NonNull Instant modified) {
     this.modified = modified;
-    return this;
   }
 
   public LocalDateTime getDueDate() {return dueDate;}
 
-  public Task setDueDate(LocalDateTime dueDate) {
+  public void setDueDate(LocalDateTime dueDate) {
     this.dueDate = dueDate;
-    return this;
   }
 
   public boolean isCompleted() {return completed;}
 
-  public Task setCompleted(boolean completed) {
+  public void setCompleted(boolean completed) {
     this.completed = completed;
-    return this;
   }
 
   public long getUserId() {return userId;}
 
-  public Task setUserId(long userId) {
+  public void setUserId(long userId) {
     this.userId = userId;
-    return this;
   }
 }
