@@ -17,6 +17,7 @@ import edu.cnm.deepdive.noted.service.dao.ReminderDao;
 import edu.cnm.deepdive.noted.service.dao.TaskDao;
 import edu.cnm.deepdive.noted.service.dao.UserDao;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -64,6 +65,11 @@ public abstract class NotedDatabase extends RoomDatabase {
     @TypeConverter
     public static Uri fromString(String value) {
       return (value != null) ? Uri.parse(value) : null;
+    }
+
+    @TypeConverter
+    public static Instant fromLocalDate(LocalDate value) {
+      return (value!= null) ? Instant.ofEpochMilli(Instant.now().toEpochMilli()) : null;
     }
 
   }
