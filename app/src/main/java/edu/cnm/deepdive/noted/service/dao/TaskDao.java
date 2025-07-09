@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.noted.model.entity.Task;
+import edu.cnm.deepdive.noted.model.pojo.UserWithTasks;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -89,11 +90,11 @@ public interface TaskDao {
 
   @Transaction
   @Query("SELECT * FROM task WHERE task_id = :taskId")
-  LiveData<Task> select(long taskId);
+  LiveData<UserWithTasks> select(long taskId);
 
   @Transaction
   @Query("SELECT * FROM task WHERE user_id = :userId ORDER BY created ASC")
-  LiveData<List<Task>>  selectWhereUserIdOrderByCreatedAsc(long userId);
+  LiveData<List<UserWithTasks>>  selectWhereUserIdOrderByCreatedAsc(long userId);
 
   // TODO: 7/8/25 Add more queries when appropriate
 

@@ -8,7 +8,6 @@ import java.util.List;
 
 public class UserWithNotes extends User {
 
-
   @Relation(entity = Note.class, parentColumn = "user_id", entityColumn = "user_id")
   private final List<Note> notes = new LinkedList<>();
 
