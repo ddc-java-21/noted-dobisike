@@ -29,7 +29,7 @@ import java.time.temporal.ChronoUnit;
 public abstract class NotedDatabase extends RoomDatabase {
 
   static final int VERSION = 1;
-  private static final String NAME = "notes-db";
+  private static final String NAME = "notesd-db";
 
   public static String getName() {
     return NAME;
