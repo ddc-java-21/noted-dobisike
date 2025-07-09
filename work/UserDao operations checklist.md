@@ -21,17 +21,17 @@ Below these instructions, use the checkboxes below to indicate the insert, updat
 #### Insert
 
 * [X] Insert a single instance into the database at a time.
-* [X] Insert multiple instances into the database at once.
+* [ ] Insert multiple instances into the database at once.
 
 #### Update
 
 * [X] Write changes to the database for a single instance at a time.
-* [X] Write changes to the database for multiple instances at once.
+* [ ] Write changes to the database for multiple instances at once.
     
 #### Delete 
 
 * [X] Delete a single instance from the database at a time.
-* [X] Delete multiple instances from the database at once.
+* [ ] Delete multiple instances from the database at once.
     
 ### Reading/querying model data
 
@@ -39,6 +39,8 @@ Your DAO will also need to declare methods that read data from the database, pro
 
 If you think you will have multiple queries that return a single instance, and/or multiple queries that return multiple instances, copy and pase the bullet items below as many times as necessary.
 
-* [X] Return a single instance, selected by {_userId, oauthKey_}.
+* [X] Return a single instance, selected by {_SELECT * FROM user WHERE user_id = :userId_}.
 
-* [X] Return multiple instances, selected by {_user_}, and orded by {_display_name_}.
+* [X] Return a single(maybe) instance, selected by {_SELECT * FROM user WHERE oauth_key = :oauthKey_}.
+
+* [X] Return multiple instances, selected by {_SELECT * FROM user ORDER BY display_name ASC_}.

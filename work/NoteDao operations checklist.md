@@ -26,7 +26,7 @@ Below these instructions, use the checkboxes below to indicate the insert, updat
 #### Update
 
 * [X] Write changes to the database for a single instance at a time.
-* [X] Write changes to the database for multiple instances at once.
+* [ ] Write changes to the database for multiple instances at once.
     
 #### Delete 
 
@@ -39,6 +39,6 @@ Your DAO will also need to declare methods that read data from the database, pro
 
 If you think you will have multiple queries that return a single instance, and/or multiple queries that return multiple instances, copy and pase the bullet items below as many times as necessary.
 
-* [X] Return a single instance, selected by noteId
+* [X] Return a single instance, selected by {_SELECT * FROM note WHERE note_id = :noteId_}
 
-* [X] Return multiple instances, selected by userId and ordered by created Desc.
+* [X] Return multiple instances, selected by {_SELECT * FROM note WHERE user_id = :userId ORDER BY created DESC_}
