@@ -25,10 +25,10 @@ public interface TaskDao {
         .just(task)
         .doOnSuccess((t) -> {
           Instant now = Instant.now();
-          LocalDateTime selectedDate = LocalDateTime.now().withDayOfMonth(1);
+          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
           t.setCreated(now);
           t.setModified(now);
-          t.setDueDate(selectedDate);
+          t.setDueDate(dueDate);
           t.setCompleted(false);
         })
         .flatMap(this::_insert)
@@ -44,11 +44,11 @@ public interface TaskDao {
         .just(tasks)
         .doOnSuccess((ts) -> {
           Instant now = Instant.now();
-          LocalDateTime selectedDate = LocalDateTime.now().withDayOfMonth(1);
+          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
           ts.forEach((t) -> {
             t.setCreated(now);
             t.setModified(now);
-            t.setDueDate(selectedDate);
+            t.setDueDate(dueDate);
             t.setCompleted(false);
           });
         })
@@ -64,14 +64,14 @@ public interface TaskDao {
   }
 
   @Update
-  Single<Task> _update(Task task);
+  Single<Integer> _update(Task task);
 
   default Single<Task> update(Task task) {
     return Single
         .just(task)
         .doOnSuccess((t) -> {
           t.setModified(Instant.now());
-          t.setDueDate(LocalDateTime.now().withDayOfMonth(1));
+          t.setDueDate(Instant.now());
           t.setCompleted(true);
         })
         .flatMap(this::_update)
@@ -79,7 +79,7 @@ public interface TaskDao {
   }
 
   @Delete
-  Single<Task> delete(Task task);
+  Single<Integer> delete(Task task);
 
   @Delete
   Single<Integer> delete(List<? extends Task> tasks);

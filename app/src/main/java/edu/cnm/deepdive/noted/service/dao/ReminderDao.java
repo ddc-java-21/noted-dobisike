@@ -8,10 +8,9 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.noted.model.entity.Reminder;
-import edu.cnm.deepdive.noted.model.entity.Reminder;
+import edu.cnm.deepdive.noted.model.pojo.UserWithReminders;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public interface ReminderDao {
         .just(reminder)
         .doOnSuccess((t) -> {
           Instant now = Instant.now();
-          LocalDateTime selectedDate = LocalDateTime.now().withDayOfMonth(1);
+          Instant selectedDate = Instant.ofEpochMilli(now.toEpochMilli());
           t.setCreated(now);
           t.setModified(now);
           t.setSelectedDate(selectedDate);
@@ -45,7 +44,7 @@ public interface ReminderDao {
         .just(reminders)
         .doOnSuccess((ts) -> {
           Instant now = Instant.now();
-          LocalDateTime selectedDate = LocalDateTime.now().withDayOfMonth(1);
+          Instant selectedDate = Instant.ofEpochMilli(now.toEpochMilli());
           ts.forEach((t) -> {
             t.setCreated(now);
             t.setModified(now);
@@ -65,22 +64,22 @@ public interface ReminderDao {
   }
 
   @Update
-  Single<Reminder> _update(Reminder reminder);
+  Single<Integer> _update(Reminder reminder);
 
   default Single<Reminder> update(Reminder reminder) {
     return Single
         .just(reminder)
-        .doOnSuccess((t) -> {
-          t.setModified(Instant.now());
-          t.setSelectedDate(LocalDateTime.now().withDayOfMonth(1));
-          t.setCompleted(true);
+        .doOnSuccess((r) -> {
+          r.setModified(Instant.now());
+          r.setSelectedDate(Instant.now());
+          r.setCompleted(true);
         })
         .flatMap(this::_update)
         .map((count) -> reminder);
   }
 
   @Delete
-  Single<Reminder> delete(Reminder reminder);
+  Single<Integer> delete(Reminder reminder);
 
   @Delete
   Single<Integer> delete(List<? extends Reminder> reminders);
