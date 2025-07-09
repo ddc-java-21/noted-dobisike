@@ -10,6 +10,8 @@ import dagger.hilt.components.SingletonComponent;
 import edu.cnm.deepdive.noted.service.NotedDatabase;
 import edu.cnm.deepdive.noted.service.dao.ImageDao;
 import edu.cnm.deepdive.noted.service.dao.NoteDao;
+import edu.cnm.deepdive.noted.service.dao.ReminderDao;
+import edu.cnm.deepdive.noted.service.dao.TaskDao;
 import edu.cnm.deepdive.noted.service.dao.UserDao;
 import edu.cnm.deepdive.noted.service.util.Preloader;
 import javax.inject.Singleton;
@@ -30,6 +32,18 @@ public class DatabaseModule {
   @Singleton
   UserDao provideUserDao(NotedDatabase database) {
     return database.getUserDao();
+  }
+
+  @Provides
+  @Singleton
+  TaskDao provideTaskDao(NotedDatabase database) {
+    return database.getTaskDao();
+  }
+
+  @Provides
+  @Singleton
+  ReminderDao provideReminderDao(NotedDatabase database) {
+    return database.getReminderDao();
   }
 
   @Provides
