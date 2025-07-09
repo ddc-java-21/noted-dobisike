@@ -41,7 +41,7 @@ public class Task {
 
 
   @ColumnInfo(name = "due_date", index = true)
-  private LocalDateTime dueDate;
+  private Instant dueDate;
 
   @ColumnInfo(name = "completed_date", index = true)
   private boolean completed;
@@ -82,9 +82,9 @@ public class Task {
     this.modified = modified;
   }
 
-  public LocalDateTime getDueDate() {return dueDate;}
+  public Instant getDueDate() {return dueDate;}
 
-  public void setDueDate(LocalDateTime dueDate) {
+  public void setDueDate(Instant dueDate) {
     this.dueDate = dueDate;
   }
 

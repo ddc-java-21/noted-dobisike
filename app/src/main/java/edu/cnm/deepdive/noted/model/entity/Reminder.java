@@ -41,7 +41,7 @@ public class Reminder {
 
 
   @ColumnInfo(name = "selected_date", index = true)
-  private LocalDateTime selectedDate;
+  private Instant selectedDate;
 
   @ColumnInfo(name = "completed_date", index = true)
   private boolean completed;
@@ -82,9 +82,9 @@ public class Reminder {
     this.modified = modified;
   }
 
-  public LocalDateTime getSelectedDate() {return selectedDate;}
+  public Instant getSelectedDate() {return selectedDate;}
 
-  public void setSelectedDate(LocalDateTime selectedDate) {
+  public void setSelectedDate(Instant selectedDate) {
     this.selectedDate = selectedDate;
   }
 
