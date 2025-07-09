@@ -9,10 +9,8 @@ import java.util.List;
 public class UserWithTasks extends User {
 
   @Relation(entity = Task.class, parentColumn = "user_id", entityColumn = "user_id")
-  private List<Task> tasks = new LinkedList<>();
+  private final List<Task> tasks = new LinkedList<>();
 
   public List<Task> getTasks() {return tasks;}
-
-  public void setTasks(List<Task> tasks) {this.tasks = tasks;}
 
 }
