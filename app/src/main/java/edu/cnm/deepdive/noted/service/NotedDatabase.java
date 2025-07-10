@@ -29,7 +29,7 @@ import java.time.temporal.ChronoUnit;
 public abstract class NotedDatabase extends RoomDatabase {
 
   static final int VERSION = 1;
-  private static final String NAME = "notesd-db";
+  private static final String NAME = "noted-db";
 
   public static String getName() {
     return NAME;
@@ -65,11 +65,6 @@ public abstract class NotedDatabase extends RoomDatabase {
     @TypeConverter
     public static Uri fromString(String value) {
       return (value != null) ? Uri.parse(value) : null;
-    }
-
-    @TypeConverter
-    public static Instant fromLocalDate(LocalDate value) {
-      return (value!= null) ? Instant.ofEpochMilli(Instant.now().toEpochMilli()) : null;
     }
 
   }
