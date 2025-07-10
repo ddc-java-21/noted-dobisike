@@ -14,7 +14,7 @@ order: 20
 
 ## UML class diagram
 
-{% include linked-image.md image="img/sliding-tiles.svg" dest="pdf/sliding-tiles.pdf" alt="UML class diagram"%}
+[//]: # ({% include linked-image.md image="img/sliding-tiles.svg" dest="pdf/sliding-tiles.pdf" alt="UML class diagram"%})
 
 ## ERD entity diagram
 
