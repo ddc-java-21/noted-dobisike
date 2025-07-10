@@ -89,8 +89,8 @@ public interface TaskDao {
   Single<Integer> delete(Task... tasks);
 
   @Transaction
-  @Query("SELECT * FROM task WHERE task_id = :taskId")
-  LiveData<Task> select(long taskId);
+  @Query("SELECT * FROM task WHERE user_id = :userId")
+  LiveData<Task> select(long userId);
 
   @Transaction
   @Query("SELECT * FROM task WHERE user_id = :userId ORDER BY created ASC")

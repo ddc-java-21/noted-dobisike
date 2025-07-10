@@ -88,8 +88,8 @@ public interface ReminderDao {
   Single<Integer> delete(Reminder... reminders);
 
   @Transaction
-  @Query("SELECT * FROM reminder WHERE reminder_id = :reminderId")
-  LiveData<Reminder> select(long reminderId);
+  @Query("SELECT * FROM reminder WHERE user_id = :userId")
+  LiveData<Reminder> select(long userId);
 
   @Transaction
   @Query("SELECT * FROM reminder WHERE user_id = :userId ORDER BY created ASC")
