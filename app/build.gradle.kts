@@ -161,7 +161,7 @@ dependencies {
 }
 
 roomDdl {
-    source.set(project.file("$projectDir/schemas/edu.cnm.deepdive.noted.service.Notes=dDatabase/1.json"))
+    source.set(project.file("$projectDir/schemas/edu.cnm.deepdive.noted.service.NotedDatabase/1.json"))
     destination.set(project.file("$projectDir/../docs/sql/ddl.sql"))
 }
 

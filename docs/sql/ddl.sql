@@ -1,16 +1,67 @@
--- Generated 2025-06-11 15:05:24-0600 for database version 1
+-- Generated 2025-07-10 10:58:59-0600 for database version 1
 
 CREATE TABLE IF NOT EXISTS `user`
 (
     `user_id`      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `oauth_key`    TEXT                              NOT NULL,
     `display_name` TEXT                              NOT NULL COLLATE NOCASE,
-    `created`      INTEGER                           NOT NULL
+    `created`      INTEGER                           NOT NULL,
+    `modified`     INTEGER                           NOT NULL
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_user_oauth_key` ON `user` (`oauth_key`);
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_user_display_name` ON `user` (`display_name`);
+
+CREATE TABLE IF NOT EXISTS `task`
+(
+    `task_id`        INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    `title`          TEXT                              NOT NULL COLLATE NOCASE,
+    `description`    TEXT,
+    `created`        INTEGER                           NOT NULL,
+    `modified`       INTEGER                           NOT NULL,
+    `due_date`       INTEGER,
+    `completed_date` INTEGER                           NOT NULL,
+    `user_id`        INTEGER                           NOT NULL,
+    FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS `index_task_title` ON `task` (`title`);
+
+CREATE INDEX IF NOT EXISTS `index_task_created` ON `task` (`created`);
+
+CREATE INDEX IF NOT EXISTS `index_task_modified` ON `task` (`modified`);
+
+CREATE INDEX IF NOT EXISTS `index_task_due_date` ON `task` (`due_date`);
+
+CREATE INDEX IF NOT EXISTS `index_task_completed_date` ON `task` (`completed_date`);
+
+CREATE INDEX IF NOT EXISTS `index_task_user_id` ON `task` (`user_id`);
+
+CREATE TABLE IF NOT EXISTS `reminder`
+(
+    `reminder_id`    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    `title`          TEXT                              NOT NULL COLLATE NOCASE,
+    `description`    TEXT,
+    `created`        INTEGER                           NOT NULL,
+    `modified`       INTEGER                           NOT NULL,
+    `selected_date`  INTEGER,
+    `completed_date` INTEGER                           NOT NULL,
+    `user_id`        INTEGER                           NOT NULL,
+    FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_title` ON `reminder` (`title`);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_created` ON `reminder` (`created`);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_modified` ON `reminder` (`modified`);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_selected_date` ON `reminder` (`selected_date`);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_completed_date` ON `reminder` (`completed_date`);
+
+CREATE INDEX IF NOT EXISTS `index_reminder_user_id` ON `reminder` (`user_id`);
 
 CREATE TABLE IF NOT EXISTS `note`
 (
