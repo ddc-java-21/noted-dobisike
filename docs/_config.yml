@@ -5,6 +5,7 @@ page_navigator:
   enabled: true
 titles_from_headings:
   enabled: false
+# Putting navigation links at the top or bottom of the sites
 prev_next_navigation:
 - bottom
 
@@ -14,6 +15,7 @@ title: "Android App Starter"
 description: "Trust me, it'll be cool!"
 author:
   name: "DDC Student"
+#  email: "dorianobisike@gmail.com"
 
 # Do not change the following line.
   copyright: true

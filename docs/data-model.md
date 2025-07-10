@@ -15,3 +15,11 @@ order: 20
 ## UML class diagram
 
 {% include linked-image.md image="img/sliding-tiles.svg" dest="pdf/sliding-tiles.pdf" alt="UML class diagram"%}
+
+[//]: # (## Data definition language)
+
+[//]: # ()
+[//]: # ({% include linked-file file="sql/ddl.sql" type="sql% })
+
+
+
