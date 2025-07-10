@@ -67,11 +67,6 @@ public abstract class NotedDatabase extends RoomDatabase {
       return (value != null) ? Uri.parse(value) : null;
     }
 
-    @TypeConverter
-    public static Instant fromLocalDate(LocalDate value) {
-      return (value!= null) ? Instant.ofEpochMilli(Instant.now().toEpochMilli()) : null;
-    }
-
   }
 
 }
