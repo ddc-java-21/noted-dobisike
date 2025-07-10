@@ -90,11 +90,11 @@ public interface TaskDao {
 
   @Transaction
   @Query("SELECT * FROM task WHERE task_id = :taskId")
-  LiveData<UserWithTasks> select(long taskId);
+  LiveData<Task> select(long taskId);
 
   @Transaction
   @Query("SELECT * FROM task WHERE user_id = :userId ORDER BY created ASC")
-  LiveData<List<UserWithTasks>>  selectWhereUserIdOrderByCreatedAsc(long userId);
+  LiveData<List<Task>>  selectWhereUserIdOrderByCreatedAsc(long userId);
 
   // TODO: 7/8/25 Add more queries when appropriate
 

@@ -89,11 +89,11 @@ public interface ReminderDao {
 
   @Transaction
   @Query("SELECT * FROM reminder WHERE reminder_id = :reminderId")
-  LiveData<UserWithReminders> select(long reminderId);
+  LiveData<Reminder> select(long reminderId);
 
   @Transaction
   @Query("SELECT * FROM reminder WHERE user_id = :userId ORDER BY created ASC")
-  LiveData<List<UserWithReminders>>  selectWhereUserIdOrderByCreatedAsc(long userId);
+  LiveData<List<Reminder>>  selectWhereUserIdOrderByCreatedAsc(long userId);
 
   // TODO: 7/8/25 Add more queries when appropriate
 
