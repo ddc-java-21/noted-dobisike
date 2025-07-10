@@ -32,7 +32,7 @@ order: 0
     > As a businessperson, I use Noted so that I can set reminders to keep track of things I need 
     to complete in the future without it slipping my mind.
 
-- Moms who need to keep track of their kids sports games.
+- Moms who need to keep track of their kid's sports games.
     > As a mom, I use Noted so that I can now use the reminder to know which days my kid needs a ride 
     to their game and take notes for the score of their games
   
