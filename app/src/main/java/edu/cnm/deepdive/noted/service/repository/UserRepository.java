@@ -1,7 +1,8 @@
-package edu.cnm.deepdive.noted.service;
+package edu.cnm.deepdive.noted.service.repository;
 
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.noted.model.entity.User;
+import edu.cnm.deepdive.noted.service.GoogleSignInService;
 import edu.cnm.deepdive.noted.service.dao.UserDao;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Scheduler;

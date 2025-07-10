@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.service;
+package edu.cnm.deepdive.noted.service.repository;
 
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.noted.model.entity.Image;
