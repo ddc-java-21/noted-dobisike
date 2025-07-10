@@ -14,16 +14,16 @@ order: 0
 
 ## Summary
 
-    Noted is a note taking mobile application. Noted allows users to create notes that they would 
-    like to save and go back to so that they can review the notes that they have taken previously.
-    Each user can create tasks aka todo's to add to certain dates so that they can have a list 
-    of tasks that they wanted to keep track of as well that might coencide with a note or activity
-    that they are doing on a particular day. A user can also create reminders to set in the future
-    that will give them a countdown of how many days left until that reminder is due as well as 
-    being a daily reminder up until that date has come because of the frustration that some people
-    have with other reminder apps that only notify them when that date has come and not up until 
-    that day has come. The user also has the ability to update or delete any of these notes, tasks, 
-    or reminders.
+  Noted is a note taking mobile application. Noted allows users to create notes that they would 
+like to save and go back to so that they can review the notes that they have taken previously.
+Each user can create tasks aka todo's to add to certain dates so that they can have a list 
+of tasks that they wanted to keep track of as well that might coencide with a note or activity
+that they are doing on a particular day. A user can also create reminders to set in the future
+that will give them a countdown of how many days left until that reminder is due as well as 
+being a daily reminder up until that date has come because of the frustration that some people
+have with other reminder apps that only notify them when that date has come and not up until 
+that day has come. The user also has the ability to update or delete any of these notes, tasks, 
+or reminders.
     
 
 ## Intended users and user stories
