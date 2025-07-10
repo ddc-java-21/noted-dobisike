@@ -14,6 +14,7 @@ order: 20
 
 ## UML class diagram
 
+[![Noted UML Entity Diagram](img/Noted-UML.drawio.svg)](pdf/Noted-UML.drawio.pdf)
 
 ## ERD entity diagram
 

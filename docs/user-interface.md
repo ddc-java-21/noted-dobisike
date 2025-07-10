@@ -14,4 +14,4 @@ order: 10
 
 ## Wireframe diagram
 
-{% include linked-image.md image="img/wireframe.svg" dest="pdf/wireframe.pdf" alt="Wireframe diagram"%}
+[![Noted Wireframe Entity Diagram](img/Noted-Wireframe.svg)](pdf/Noted-Wireframe.pdf)
