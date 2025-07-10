@@ -32,8 +32,8 @@ order: 20
 
 [//]: # (## Data definition language)
 
-[//]: # ()
-[//]: # ({% include linked-file file="sql/ddl.sql" type="sql% })
+
+{% include linked-file file="sql/ddl.sql" type="sql" %}
 
 
 
