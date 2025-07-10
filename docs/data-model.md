@@ -28,12 +28,10 @@ order: 20
 - [`Reminder`](https://github.com/ddc-java-21/noted-dobisike/blob/2c1da6d7debccc78f91f7d091763c6143b32efe6/app/src/main/java/edu/cnm/deepdive/noted/model/entity/Reminder.java)
 - [`Image`](https://github.com/ddc-java-21/noted-dobisike/blob/2c1da6d7debccc78f91f7d091763c6143b32efe6/app/src/main/java/edu/cnm/deepdive/noted/model/entity/Image.java)
 
+## Data definition language
 
+[//]: # ({% include linked-file file="sql/ddl.sql" type="sql" %})
 
-[//]: # (## Data definition language)
-
-
-{% include linked-file file="sql/ddl.sql" type="sql" %}
 
 
 
