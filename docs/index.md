@@ -14,7 +14,7 @@ order: 0
 
 ## Summary
 
-    >Noted is a note taking mobile application. Noted allows users to create notes that they would 
+    Noted is a note taking mobile application. Noted allows users to create notes that they would 
     like to save and go back to so that they can review the notes that they have taken previously.
     Each user can create tasks aka todo's to add to certain dates so that they can have a list 
     of tasks that they wanted to keep track of as well that might coencide with a note or activity
@@ -89,7 +89,6 @@ For example, this starter app already includes the necessary data model elements
   * [`Service`](https://console.cloud.google.com/welcome?inv=1&invt=Ab2UqQ&project=carbon-beanbag-463816-j5)
   * Will hande user authentification for sign in
   * This app will be able to be used once initial sign in is complete and they don't sign out
-[//]: # (If the client component will need to access special services of the device &#40;e.g., sensors, contacts, messaging&#41;, list them here using a bullet list. Also, if the client component will need to access already-existing external services &#40;e.g., real-time weather data, Open Movie Database, Open Trivia Database&#41;, those should also be listed here; any such references to external services should include links to the main page or API description page for the service.)
 
 ## Stretch goals and possible enhancements 
 
