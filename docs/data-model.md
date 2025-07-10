@@ -1,5 +1,5 @@
 ---
-title: Data Model
+title: Data Models
 description: "UML class diagram, entity-relationship diagram, and entity classes."
 order: 20
 ---

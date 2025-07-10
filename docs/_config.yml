@@ -11,11 +11,11 @@ prev_next_navigation:
 
 # TODO Modify the contents below for the specific project. NOTE THE INDENTATION!
 
-title: "Android App Starter"
+title: "Noted - Note Application"
 description: "Trust me, it'll be cool!"
 author:
-  name: "DDC Student"
-#  email: "dorianobisike@gmail.com"
+  name: "Dorian Obisike"
+  email: "dorianobisike@gmail.com"
 
 # Do not change the following line.
   copyright: true
