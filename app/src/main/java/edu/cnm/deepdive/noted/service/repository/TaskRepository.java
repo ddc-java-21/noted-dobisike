@@ -15,40 +15,40 @@ import javax.inject.Singleton;
 
 @Singleton
 public class TaskRepository {
-
-  private final TaskDao taskDao;
-
-  private final Scheduler scheduler;
-
-  @Inject
-  public TaskRepository(TaskDao taskDao) {
-    this.taskDao = taskDao;
-    scheduler = Schedulers.io();
-  }
-
-  public LiveData<UserWithTasks> get(long taskId) {
-    return taskDao.select(taskId);
-  }
-
-  public Completable remove(Task task) {
-    return taskDao
-        .delete(task)
-        .subscribeOn(scheduler)
-        .ignoreElement();
-  }
-
-  public Single<UserWithTasks> save(UserWithTasks user, Task task) {
-    task.setUserId(user.getId());
-    return (
-        (task.getId() == 0) ? taskDao.insert(task) : taskDao.update(task)
-        )
-        .doOnSuccess((u) -> user.getTasks().forEach((t) -> task.setUserId(u.getId())))
-        .map((u) -> user.getTasks())
-        .
-  }
-
-  private Single<List<Task>> saveTasks(List<Task> tasks) {
-
-  }
+//
+//  private final TaskDao taskDao;
+//
+//  private final Scheduler scheduler;
+//
+//  @Inject
+//  public TaskRepository(TaskDao taskDao) {
+//    this.taskDao = taskDao;
+//    scheduler = Schedulers.io();
+//  }
+//
+//  public LiveData<UserWithTasks> get(long taskId) {
+//    return taskDao.select(taskId);
+//  }
+//
+//  public Completable remove(Task task) {
+//    return taskDao
+//        .delete(task)
+//        .subscribeOn(scheduler)
+//        .ignoreElement();
+//  }
+//
+//  public Single<UserWithTasks> save(UserWithTasks user, Task task) {
+//    task.setUserId(user.getId());
+//    return (
+//        (task.getId() == 0) ? taskDao.insert(task) : taskDao.update(task)
+//        )
+//        .doOnSuccess((u) -> user.getTasks().forEach((t) -> task.setUserId(u.getId())))
+//        .map((u) -> user.getTasks())
+//        .
+//  }
+//
+//  private Single<List<Task>> saveTasks(List<Task> tasks) {
+//
+//  }
 
 }
