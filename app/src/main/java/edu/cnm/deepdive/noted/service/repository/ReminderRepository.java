@@ -54,7 +54,7 @@ public class ReminderRepository {
         .subscribeOn(scheduler);
   }
 
-  private LiveData<List<Reminder>> getAll(User user) {
+  public LiveData<List<Reminder>> getAll(User user) {
     return reminderDao.selectWhereUserIdOrderByCreatedAsc(user.getId());
   }
 

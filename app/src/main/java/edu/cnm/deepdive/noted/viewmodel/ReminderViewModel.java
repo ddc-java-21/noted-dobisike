@@ -11,10 +11,10 @@ import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import dagger.hilt.android.qualifiers.ApplicationContext;
-import edu.cnm.deepdive.noted.model.entity.Task;
+import edu.cnm.deepdive.noted.model.entity.Reminder;
 import edu.cnm.deepdive.noted.model.entity.User;
-import edu.cnm.deepdive.noted.model.pojo.UserWithTasks;
-import edu.cnm.deepdive.noted.service.repository.TaskRepository;
+import edu.cnm.deepdive.noted.model.pojo.UserWithReminders;
+import edu.cnm.deepdive.noted.service.repository.ReminderRepository;
 import edu.cnm.deepdive.noted.service.repository.UserRepository;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -23,44 +23,44 @@ import java.util.List;
 import javax.inject.Inject;
 
 @HiltViewModel
-public class TaskViewModel extends ViewModel implements DefaultLifecycleObserver {
+public class ReminderViewModel extends ViewModel implements DefaultLifecycleObserver {
 
   private final Context context;
-  private final TaskRepository taskRepository;
+  private final ReminderRepository reminderRepository;
   private final UserRepository userRepository;
-  private final MutableLiveData<Long> taskId;
+  private final MutableLiveData<Long> reminderId;
   private final MutableLiveData<User> user;
-  private final LiveData<List<Task>> tasks;
+  private final LiveData<List<Reminder>> reminders;
   private final MutableLiveData<Boolean> editing;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
-  private Instant taskModified;
+  private Instant reminderModified;
 
   @Inject
-  public TaskViewModel(@ApplicationContext Context context, @NonNull TaskRepository taskRepository,
-      @NonNull UserRepository userRepository, LiveData<UserWithTasks> task) {
+  public ReminderViewModel(@ApplicationContext Context context, @NonNull ReminderRepository reminderRepository,
+      @NonNull UserRepository userRepository, LiveData<UserWithReminders> reminder) {
     this.context = context;
-    this.taskRepository = taskRepository;
+    this.reminderRepository = reminderRepository;
     this.userRepository = userRepository;
-    taskId = new MutableLiveData<>();
+    reminderId = new MutableLiveData<>();
     user = new MutableLiveData<>();
-    tasks = Transformations.switchMap(user, taskRepository::getAll);
+    reminders = Transformations.switchMap(user, reminderRepository::getAll);
     editing = new MutableLiveData<>(false);
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
   }
 
-  public LiveData<Long> getTaskId() {
-    return taskId;
+  public LiveData<Long> getReminderId() {
+    return reminderId;
   }
 
-  public void setTaskId(Long taskId) {
-    this.taskId.setValue(taskId);
+  public void setReminderId(Long reminderId) {
+    this.reminderId.setValue(reminderId);
   }
 
-  public LiveData<List<Task>> getTasks() {
-    return tasks;
+  public LiveData<List<Reminder>> getReminders() {
+    return reminders;
   }
 
   LiveData<Boolean> getEditing() {
@@ -71,23 +71,23 @@ public class TaskViewModel extends ViewModel implements DefaultLifecycleObserver
     this.editing.setValue(editing);
   }
 
-  public void save(UserWithTasks task) {
+  public void save(UserWithReminders reminder) {
     throwable.setValue(null);
     //noinspection DataFlowIssue
-    Single.just(task)
-        .doOnSuccess((t) -> t.getTasks().clear())
-        .doOnSuccess((t) -> t.getTasks().addAll(tasks.getValue()))
+    Single.just(reminder)
+        .doOnSuccess((r) -> r.getReminders().clear())
+        .doOnSuccess((r) -> r.getReminders().addAll(reminders.getValue()))
         .subscribe(
-            (t) -> taskId.postValue(t.getId()),
+            (r) -> reminderId.postValue(r.getId()),
             this::postThrowable,
             pending
         );
   }
 
-  public void remove(Task task) {
+  public void remove(Reminder reminder) {
     throwable.setValue(null);
-    taskRepository
-        .remove(task)
+    reminderRepository
+        .remove(reminder)
         .subscribe(
             () -> {},
             this::postThrowable,
