@@ -8,6 +8,7 @@ import edu.cnm.deepdive.noted.service.dao.ReminderDao;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,9 +22,9 @@ public class ReminderRepository {
   private final Scheduler scheduler;
 
   @Inject
-  public ReminderRepository(ReminderDao reminderDao, Scheduler scheduler) {
+  public ReminderRepository(ReminderDao reminderDao) {
     this.reminderDao = reminderDao;
-    this.scheduler = scheduler;
+    scheduler = Schedulers.io();
   }
 
   public LiveData<Reminder> get(long reminderId) {
