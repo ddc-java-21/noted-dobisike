@@ -49,10 +49,6 @@ or reminders.
 * The user can edit their created tasks, reminders, or notes
 
 ## Persistent data
-
-Using a bullet list, list what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e., without connection to a server) across multiple sessions of use.
-
-For example, this starter app already includes the necessary data model elements and data-access code to store & retrieve the following 
   
 * User
     * Display name
@@ -88,7 +84,7 @@ For example, this starter app already includes the necessary data model elements
 * Google cloud console
   * [`Service`](https://console.cloud.google.com/welcome?inv=1&invt=Ab2UqQ&project=carbon-beanbag-463816-j5)
   * Will hande user authentification for sign-in
-  * This app will be able to be used once initial sign-in is complete, and they don't sign out
+  * This app will be able to be used once the initial sign-in is complete, and they don't sign out
 
 ## Stretch goals and possible enhancements 
 
