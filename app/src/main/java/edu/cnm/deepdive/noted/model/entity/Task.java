@@ -40,6 +40,7 @@ public class Task {
   private Instant modified = Instant.now();
 
 
+  @NonNull
   @ColumnInfo(name = "due_date", index = true)
   private Instant dueDate;
 
@@ -82,9 +83,10 @@ public class Task {
     this.modified = modified;
   }
 
+  @NonNull
   public Instant getDueDate() {return dueDate;}
 
-  public void setDueDate(Instant dueDate) {
+  public void setDueDate(@NonNull Instant dueDate) {
     this.dueDate = dueDate;
   }
 

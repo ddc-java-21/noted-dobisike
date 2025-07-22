@@ -39,7 +39,7 @@ public class Reminder {
   @ColumnInfo(index = true)
   private Instant modified = Instant.now();
 
-
+  @NonNull
   @ColumnInfo(name = "selected_date", index = true)
   private Instant selectedDate;
 
@@ -82,9 +82,10 @@ public class Reminder {
     this.modified = modified;
   }
 
+  @NonNull
   public Instant getSelectedDate() {return selectedDate;}
 
-  public void setSelectedDate(Instant selectedDate) {
+  public void setSelectedDate(@NonNull Instant selectedDate) {
     this.selectedDate = selectedDate;
   }
 
