@@ -48,7 +48,7 @@ public class NoteDetailsFragment extends Fragment {
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    noteId = DetailsFragmentArgs.fromBundle(getArguments()).getNoteId();
+    noteId = NoteDetailsFragmentArgs.fromBundle(getArguments()).getNoteId();
   }
 
   /** @noinspection DataFlowIssue*/
