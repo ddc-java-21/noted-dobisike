@@ -8,10 +8,8 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.noted.model.entity.Task;
-import edu.cnm.deepdive.noted.model.pojo.UserWithTasks;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,11 +24,11 @@ public interface TaskDao {
         .just(task)
         .doOnSuccess((t) -> {
           Instant now = Instant.now();
-          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
+//          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
           t.setCreated(now);
           t.setModified(now);
-          t.setDueDate(dueDate);
-          t.setCompleted(false);
+//          t.setDueDate(dueDate);
+//          t.setCompleted(false);
         })
         .flatMap(this::_insert)
         .doOnSuccess(task::setId)
@@ -45,12 +43,12 @@ public interface TaskDao {
         .just(tasks)
         .doOnSuccess((ts) -> {
           Instant now = Instant.now();
-          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
+//          Instant dueDate = Instant.ofEpochMilli(now.toEpochMilli());
           ts.forEach((t) -> {
             t.setCreated(now);
             t.setModified(now);
-            t.setDueDate(dueDate);
-            t.setCompleted(false);
+//            t.setDueDate(dueDate);
+//            t.setCompleted(false);
           });
         })
         .flatMap(this::_insert)
@@ -72,8 +70,8 @@ public interface TaskDao {
         .just(task)
         .doOnSuccess((t) -> {
           t.setModified(Instant.now());
-          t.setDueDate(Instant.now());
-          t.setCompleted(true);
+//          t.setDueDate(Instant.now());
+//          t.setCompleted(true);
         })
         .flatMap(this::_update)
         .map((count) -> task);
@@ -93,8 +91,8 @@ public interface TaskDao {
   LiveData<Task> select(long userId);
 
   @Transaction
-  @Query("SELECT * FROM task WHERE user_id = :userId ORDER BY created ASC")
-  LiveData<List<Task>>  selectWhereUserIdOrderByCreatedAsc(long userId);
+  @Query("SELECT * FROM task WHERE user_id = :userId ORDER BY created DESC")
+  LiveData<List<Task>> selectWhereUserIdOrderByCreatedDesc(long userId);
 
   // TODO: 7/8/25 Add more queries when appropriate
 

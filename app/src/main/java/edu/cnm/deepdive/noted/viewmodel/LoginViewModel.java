@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.api.Api.ApiOptions.HasGoogleSignInAccountOptions;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import edu.cnm.deepdive.noted.service.GoogleSignInService;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
