@@ -57,7 +57,7 @@ public class TaskRepository {
         .subscribeOn(scheduler);
   }
 
-  private LiveData<List<Task>> getAll(User user) {
+  public LiveData<List<Task>> getAll(User user) {
     return taskDao.selectWhereUserIdOrderByCreatedDesc(user.getId());
   }
 

@@ -32,10 +32,10 @@ import java.io.File;
 import java.util.UUID;
 
 
-public class DetailsFragment extends Fragment {
+public class NoteDetailsFragment extends Fragment {
 
   /** @noinspection unused*/
-  private static final String TAG = DetailsFragment.class.getSimpleName();
+  private static final String TAG = NoteDetailsFragment.class.getSimpleName();
   private static final String AUTHORITY = ImageFileProvider.class.getName().toLowerCase();
 
   private FragmentDetailsBinding binding;

@@ -61,7 +61,7 @@
 
   <fragment
     android:id="@+id/details_fragment"
-    android:name="edu.cnm.deepdive.noted.controller.DetailsFragment"
+    android:name="edu.cnm.deepdive.noted.controller.NoteDetailsFragment"
     android:label="@string/details_fragment_label"
     tools:layout="@layout/fragment_details">
 
