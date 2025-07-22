@@ -39,7 +39,7 @@ public class TaskViewModel extends ViewModel implements DefaultLifecycleObserver
 
   @Inject
   public TaskViewModel(@ApplicationContext Context context, @NonNull TaskRepository taskRepository,
-      @NonNull UserRepository userRepository, LiveData<UserWithTasks> task) {
+      @NonNull UserRepository userRepository) {
     this.context = context;
     this.taskRepository = taskRepository;
     this.userRepository = userRepository;
