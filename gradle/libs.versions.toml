@@ -47,6 +47,7 @@ shadow = "8.3.6"
 picasso = "2.8"
 schema-parser = "1.0.0"
 commons-rng-simple = "1.6"
+kizitonwose-calendar = "2.8.0"
 
 # Test plugin & library versions
 junit = "5.12.2"
@@ -86,6 +87,9 @@ preference = { group = "androidx.preference", name = "preference", version.ref =
 
 # Material Design components
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Kizitonwose Calendar widget
+kizitonwose-calendar = { group = "com.kizitonwose.calendar", name = "core", version.ref = "kizitonwose-calendar" }
 
 # ReactiveX libraries
 rx-java = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rx-java"}

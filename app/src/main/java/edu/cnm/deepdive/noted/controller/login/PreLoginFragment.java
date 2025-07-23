@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.controller;
+package edu.cnm.deepdive.noted.controller.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
+import edu.cnm.deepdive.noted.controller.login.PreLoginFragmentDirections;
 import edu.cnm.deepdive.noted.viewmodel.LoginViewModel;
 
 @AndroidEntryPoint

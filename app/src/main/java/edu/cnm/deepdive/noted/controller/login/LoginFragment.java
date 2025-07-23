@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.controller;
+package edu.cnm.deepdive.noted.controller.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
+import edu.cnm.deepdive.noted.controller.login.LoginFragmentDirections;
 import edu.cnm.deepdive.noted.databinding.FragmentLoginBinding;
 import edu.cnm.deepdive.noted.viewmodel.LoginViewModel;
 

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.controller;
+package edu.cnm.deepdive.noted.controller.note;
 
 import android.Manifest;
 import android.Manifest.permission;
@@ -22,6 +22,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.snackbar.Snackbar;
 import edu.cnm.deepdive.noted.R;
+import edu.cnm.deepdive.noted.controller.note.NoteDetailsFragmentArgs;
 import edu.cnm.deepdive.noted.databinding.FragmentDetailsBinding;
 import edu.cnm.deepdive.noted.model.pojo.NoteWithImages;
 import edu.cnm.deepdive.noted.service.ImageFileProvider;
