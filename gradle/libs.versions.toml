@@ -89,7 +89,7 @@ preference = { group = "androidx.preference", name = "preference", version.ref =
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 # Kizitonwose Calendar widget
-kizitonwose-calendar = { group = "com.kizitonwose.calendar", name = "core", version.ref = "kizitonwose-calendar" }
+kizitonwose-calendar = { group = "com.kizitonwose.calendar", name = "view", version.ref = "kizitonwose-calendar" }
 
 # ReactiveX libraries
 rx-java = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rx-java"}

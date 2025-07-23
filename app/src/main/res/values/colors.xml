@@ -19,5 +19,6 @@
   <color name="cancel">#FFFF0000</color>
   <color name="ok">#FF00A000</color>
   <color name="edit">#FF0000FF</color>
+  <color name="out_of_month">#FFB0B0B0</color>
 
 </resources>
