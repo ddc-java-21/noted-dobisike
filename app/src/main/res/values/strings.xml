@@ -1,4 +1,5 @@
 <resources>
+
   <string name="list_fragment_label">All Notes</string>
   <string name="title_hint">Title</string>
   <string name="description_hint">Description</string>
@@ -13,4 +14,11 @@
   <string name="login_fragment_label">Sign in to Noted</string>
   <string name="sign_in_failure_message">Unable to sign in with provided credentials.</string>
   <string name="sign_out_title">Sign out</string>
+
+
+  <string name="first_reminder_date"/>
+  <string name="first_task_date"/>
+
+  <string name="year_month_format">MMMM yyyy</string>
+
 </resources>
