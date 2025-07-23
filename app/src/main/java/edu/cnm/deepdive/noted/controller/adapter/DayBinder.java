@@ -32,7 +32,7 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
   private OnTaskClickListener taskClickListener;
 
   @Inject
-  public DayBinder() {
+  public DayBinder(@ActivityContext Context context) {
     this.reminderMap = new  HashMap<>();
     this.taskMap = new  HashMap<>();
     reminderClickListener = (reminder) -> {};
