@@ -50,6 +50,7 @@ public class CalendarFragment extends Fragment {
     DayOfWeek firstDayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
     YearMonth currentMonth = YearMonth.now();
 
+
     return super.onCreateView(inflater, container, savedInstanceState);
   }
 

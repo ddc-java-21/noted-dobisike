@@ -53,7 +53,23 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
     ((DayHolder) holder).bind(calendarDay);
   }
 
+  public Map<LocalDate, Reminder> getReminderMap() {
+    return reminderMap;
+  }
+
+  public Map<LocalDate, Task> getTaskMap() {
+    return taskMap;
+  }
+
+  public void setListener(OnReminderClickListener reminderClickListener, OnTaskClickListener taskClickListener) {
+    this.reminderClickListener = reminderClickListener;
+    this.taskClickListener = taskClickListener;
+  }
+
   public class DayHolder extends ViewContainer {
+
+    private static final OnReminderClickListener NO_REMINDER_CLICK_LISTENER = (reminder) -> {};
+    private static final OnReminderClickListener  NO_TASK_CLICK_LISTENER = (task) -> {};
 
     private final DayCalendarBinding binding;
     private final Drawable clickableBackground;

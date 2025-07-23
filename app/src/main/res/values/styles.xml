@@ -23,6 +23,10 @@
     <item name="colorEdit">@color/edit</item>
   </style>
 
+  <style name="ListItemTitle" parent="TextAppearance.Material3.TitleMedium">
+    <!-- TODO Override other attributes as appropriate.-->
+  </style>
+
   <style name="CalendarDay">
     <item name="android:background">?android:selectableItemBackgroundBorderless</item>
   </style>
