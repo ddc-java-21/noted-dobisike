@@ -9,15 +9,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
-import edu.cnm.deepdive.noted.controller.adapter.DayBinder;
-import edu.cnm.deepdive.noted.databinding.CalendarDayLayoutBinding;
+import edu.cnm.deepdive.noted.model.entity.Reminder;
+import edu.cnm.deepdive.noted.model.entity.Task;
+import edu.cnm.deepdive.noted.view.adapter.DayBinder;
 import edu.cnm.deepdive.noted.databinding.FragmentCalendarBinding;
 import edu.cnm.deepdive.noted.databinding.HeaderCalenderBinding;
+import edu.cnm.deepdive.noted.view.adapter.HeaderBinder;
 import edu.cnm.deepdive.noted.viewmodel.ReminderViewModel;
 import edu.cnm.deepdive.noted.viewmodel.TaskViewModel;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.MonthDay;
 import java.time.YearMonth;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
@@ -29,7 +30,7 @@ public class CalendarFragment extends Fragment {
   @Inject
   DayBinder dayBinder;
   @Inject
-  HeaderCalenderBinding headerBinder;
+  HeaderBinder headerBinder;
 
   private static final String TAG = CalendarFragment.class.getSimpleName();
 
@@ -49,9 +50,12 @@ public class CalendarFragment extends Fragment {
     YearMonth firstTaskMonth = YearMonth.from(firstTaskDate);
     DayOfWeek firstDayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
     YearMonth currentMonth = YearMonth.now();
-
-
-    return super.onCreateView(inflater, container, savedInstanceState);
+    binding = FragmentCalendarBinding.inflate(inflater, container, false);
+    binding.calendar.setDayBinder(dayBinder);
+    binding.calendar.setMonthHeaderBinder(headerBinder);
+    binding.calendar.setup(firstReminderMonth, currentMonth, firstDayOfWeek);
+    binding.calendar.setup(firstTaskMonth, currentMonth, firstDayOfWeek);
+    return binding.getRoot();
   }
 
   @Override

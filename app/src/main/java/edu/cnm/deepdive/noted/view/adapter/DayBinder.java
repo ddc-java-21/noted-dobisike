@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.controller.adapter;
+package edu.cnm.deepdive.noted.view.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -15,8 +15,10 @@ import edu.cnm.deepdive.noted.R;
 import edu.cnm.deepdive.noted.databinding.DayCalendarBinding;
 import edu.cnm.deepdive.noted.model.entity.Reminder;
 import edu.cnm.deepdive.noted.model.entity.Task;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
@@ -27,6 +29,7 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
 
   private final Map<LocalDate, Reminder> reminderMap;
   private final Map<LocalDate, Task> taskMap;
+//  private final List<Instant> task;
 
   private OnReminderClickListener reminderClickListener;
   private OnTaskClickListener taskClickListener;
@@ -38,9 +41,6 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
     reminderClickListener = (reminder) -> {};
     taskClickListener = (task) -> {};
   }
-
-  @Inject
-
 
   @NonNull
   @Override

@@ -1,5 +1,6 @@
-package edu.cnm.deepdive.noted.controller.adapter;
+package edu.cnm.deepdive.noted.view.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.kizitonwose.calendar.core.CalendarMonth;
 import com.kizitonwose.calendar.view.MonthHeaderFooterBinder;
 import com.kizitonwose.calendar.view.ViewContainer;
+import dagger.hilt.android.qualifiers.ActivityContext;
 import dagger.hilt.android.scopes.FragmentScoped;
 import edu.cnm.deepdive.noted.R;
 import edu.cnm.deepdive.noted.databinding.HeaderCalenderBinding;
@@ -18,6 +20,7 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 import java.util.stream.IntStream;
 import javax.inject.Inject;
+import org.jetbrains.annotations.NotNull;
 
 @FragmentScoped
 public class HeaderBinder implements MonthHeaderFooterBinder<ViewContainer> {
@@ -27,13 +30,13 @@ public class HeaderBinder implements MonthHeaderFooterBinder<ViewContainer> {
 
 
   @Inject
-  public HeaderBinder(LayoutInflater inflater, DateTimeFormatter formatter) {
-    this.inflater = inflater;
-    this.formatter = formatter;
+  public HeaderBinder(@NonNull @ActivityContext Context context) {
+    inflater = LayoutInflater.from(context);
+    formatter = DateTimeFormatter.ofPattern(context.getString(R.string.year_month_format));
   }
 
   @Override
-  public ViewContainer create(@NonNull View view) {
+  public @NotNull ViewContainer create(@NotNull View view) {
     return new HeaderHolder(view);
   }
 
@@ -48,7 +51,7 @@ public class HeaderBinder implements MonthHeaderFooterBinder<ViewContainer> {
 
     private boolean bounded;
 
-    public HeaderHolder(@NonNull View view) {
+    public HeaderHolder(@NotNull View view) {
       super(view);
       binding = HeaderCalenderBinding.bind(view);
     }
