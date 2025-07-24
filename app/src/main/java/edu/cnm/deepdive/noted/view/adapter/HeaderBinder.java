@@ -60,7 +60,7 @@ public class HeaderBinder implements MonthHeaderFooterBinder<ViewContainer> {
       binding.monthYear.setText(calendarMonth.getYearMonth().format(formatter));
       if(!bounded) {
         bounded = true;
-        ViewGroup columnHeaderRoot = binding.dayNames;
+        ViewGroup columnHeaderRoot = binding.calendarDayTitles;
         columnHeaderRoot.removeAllViews();
         Locale locale = Locale.getDefault();
         DayOfWeek firstDayOfWeek = WeekFields.of(locale).getFirstDayOfWeek();
