@@ -6,15 +6,12 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   >
 
-  <include
-    android:id="@+id/titlesContainer"
-    layout="@layout/day_header"/>
-
   <com.kizitonwose.calendar.view.CalendarView
     android:id="@+id/calendar"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
-    app:cv_dayViewResource="@layout/calendar_day_layout"
+    app:cv_scrollPaged="true"
+    app:cv_dayViewResource="@layout/day_calendar"
     app:cv_monthHeaderResource="@layout/header_calender"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintEnd_toEndOf="parent"

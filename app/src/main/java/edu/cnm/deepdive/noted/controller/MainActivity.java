@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
 import edu.cnm.deepdive.noted.databinding.ActivityMainBinding;
+import edu.cnm.deepdive.noted.viewmodel.LoginViewModel;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
   private ActivityMainBinding binding;
   private AppBarConfiguration appBarConfig;
   private NavController navController;
+  private LoginViewModel loginViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
   private void setupUI() {
     binding = ActivityMainBinding.inflate(getLayoutInflater());
+    binding.navDrawer
+            .getMenu()
+                .findItem(R.id.sign_out)
+                    .setOnMenuItemClickListener((item) -> {
+                      loginViewModel.signOut();
+                      return true;
+                    });
     setContentView(binding.getRoot());
   }
 
@@ -40,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     appBarConfig = new AppBarConfiguration.Builder(
         R.id.list_fragment, R.id.pre_login_fragment, R.id.login_fragment)
         .build();
-    NavHostFragment host = binding.navHostFragment.getFragment();
+    NavHostFragment host = binding.appBarMain.navHostFragment.getFragment();
     navController = host.getNavController();
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig);
   }

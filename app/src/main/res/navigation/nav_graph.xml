@@ -40,7 +40,9 @@
     android:id="@+id/list_fragment"
     android:name="edu.cnm.deepdive.noted.controller.ListFragment"
     android:label="@string/list_fragment_label"
-    tools:layout="@layout/fragment_list">
+    tools:layout="@layout/fragment_list"
+
+    >
 
     <action
       android:id="@+id/show_details"

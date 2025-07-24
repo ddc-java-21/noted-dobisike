@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group
+    android:id="@+id/basic_actions"
+    android:checkableBehavior="none"
+    >
+
+    <item
+      android:id="@+id/calendar_fragment"
+      android:title="@string/calendar_title"
+      android:icon="@drawable/calendar_launcher"
+      android:orderInCategory="1000"/>
+
+    <item
+      android:id="@+id/reminder_fragment"
+      android:title="@string/reminder_title"
+      android:icon="@drawable/reminder"
+      android:orderInCategory="1000"/>
+
+    <item
+      android:id="@+id/tasks_fragment"
+      android:title="@string/tasks_title"
+      android:icon="@drawable/task"
+      android:orderInCategory="1000"/>
+
+    <item
+      android:id="@+id/settings_fragment"
+      android:title="@string/settings_title"
+      android:icon="@drawable/settings"
+      android:orderInCategory="1000"/>
+
+    <item
+      android:id="@+id/sign_out"
+      android:title="@string/sign_out_title"
+      android:icon="@drawable/logout"
+      android:orderInCategory="1000"/>
+
+  </group>
+
+</menu>

@@ -31,6 +31,7 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
   private final Map<LocalDate, Reminder> reminderMap;
   private final Map<LocalDate, Task> taskMap;
 //  private final List<Instant> task;
+  private final LocalDate selectedDate = null;
 
   private OnReminderClickListener reminderClickListener;
   private OnTaskClickListener taskClickListener;

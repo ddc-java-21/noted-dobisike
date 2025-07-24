@@ -20,5 +20,9 @@
   <string name="first_task_date"/>
 
   <string name="year_month_format">MMMM yyyy</string>
+  <string name="settings_title">Settings</string>
+  <string name="tasks_title">Tasks</string>
+  <string name="reminder_title">Reminders</string>
+  <string name="calendar_title">Calendar</string>
 
 </resources>
