@@ -19,13 +19,29 @@
     />
 
   <LinearLayout
-    android:id="@+id/day_names"
+    android:id="@+id/calendar_day_titles"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:weightSum="@integer/title_days_on_calendar"
     android:layout_margin="@dimen/half_dynamic_spacing"
     android:orientation="horizontal"
-    app:layout_constraintTop_toBottomOf="@id/month_year"
-    />
+    app:layout_constraintTop_toBottomOf="@id/month_year">
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+    <include layout="@layout/day_header"/>
+
+  </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

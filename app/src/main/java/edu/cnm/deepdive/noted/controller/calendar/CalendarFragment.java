@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.text.util.LocalePreferences.FirstDayOfWeek;
 import androidx.fragment.app.Fragment;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
@@ -48,13 +49,14 @@ public class CalendarFragment extends Fragment {
     LocalDate firstTaskDate = LocalDate.parse(getString(R.string.first_task_date));
     YearMonth firstReminderMonth = YearMonth.from(firstReminderDate);
     YearMonth firstTaskMonth = YearMonth.from(firstTaskDate);
-    DayOfWeek firstDayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
     YearMonth currentMonth = YearMonth.now();
+    DayOfWeek firstDayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
     binding = FragmentCalendarBinding.inflate(inflater, container, false);
     binding.calendar.setDayBinder(dayBinder);
     binding.calendar.setMonthHeaderBinder(headerBinder);
     binding.calendar.setup(firstReminderMonth, currentMonth, firstDayOfWeek);
     binding.calendar.setup(firstTaskMonth, currentMonth, firstDayOfWeek);
+    binding.calendar.scrollToMonth(currentMonth);
     return binding.getRoot();
   }
 

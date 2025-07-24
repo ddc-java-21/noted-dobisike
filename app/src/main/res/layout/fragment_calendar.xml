@@ -6,6 +6,10 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   >
 
+  <include
+    android:id="@+id/titlesContainer"
+    layout="@layout/day_header"/>
+
   <com.kizitonwose.calendar.view.CalendarView
     android:id="@+id/calendar"
     android:layout_width="0dp"

@@ -3,6 +3,7 @@ package edu.cnm.deepdive.noted.view.adapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.kizitonwose.calendar.core.CalendarDay;
@@ -68,8 +69,7 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
 
   public class DayHolder extends ViewContainer {
 
-    private static final OnReminderClickListener NO_REMINDER_CLICK_LISTENER = (reminder) -> {};
-    private static final OnReminderClickListener  NO_TASK_CLICK_LISTENER = (task) -> {};
+    private static final OnClickListener NO_LISTENER = (rat) -> {};
 
     private final DayCalendarBinding binding;
     private final Drawable clickableBackground;
@@ -100,9 +100,10 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
                 : R.style.CalendarTextAppearance_AvailableDay_OutOfMonth
         );
       } else {
+        this.reminder = null;
         dayText.setClickable(false);
         dayText.setFocusable(false);
-        dayText.setOnClickListener(null);
+        dayText.setOnClickListener(NO_LISTENER);
         dayText.setBackground(null);
         dayText.setTextAppearance(R.style.CalendarTextAppearance);
       }
@@ -118,9 +119,10 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
                 : R.style.CalendarTextAppearance_AvailableDay_OutOfMonth
         );
       } else {
+        this.task = null;
         dayText.setClickable(false);
         dayText.setFocusable(false);
-        dayText.setOnClickListener(null);
+        dayText.setOnClickListener(NO_LISTENER);
         dayText.setBackground(null);
         dayText.setTextAppearance(R.style.CalendarTextAppearance);
       }
@@ -135,13 +137,11 @@ public class DayBinder implements MonthDayBinder<ViewContainer> {
 
   @FunctionalInterface
   public interface OnTaskClickListener {
-
     void onTaskClick(Task task);
   }
 
   @FunctionalInterface
   public interface OnReminderClickListener {
-
     void onReminderClick(Reminder reminder);
   }
 }
