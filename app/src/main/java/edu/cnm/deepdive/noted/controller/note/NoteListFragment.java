@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.noted.controller;
+package edu.cnm.deepdive.noted.controller.note;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,7 +25,7 @@ import edu.cnm.deepdive.noted.viewmodel.NoteViewModel;
 import javax.inject.Inject;
 
 @AndroidEntryPoint
-public class ListFragment extends Fragment implements MenuProvider {
+public class NoteListFragment extends Fragment implements MenuProvider {
 
   @Inject
   NoteAdapter adapter;
@@ -41,9 +41,9 @@ public class ListFragment extends Fragment implements MenuProvider {
     binding = FragmentListBinding.inflate(inflater, container, false);
     binding.notes.setAdapter(adapter);
     adapter.setListener((note, position) -> Navigation.findNavController(binding.getRoot())
-        .navigate(ListFragmentDirections.showDetails(note.getId())));
+        .navigate(NoteListFragmentDirections.showDetails(note.getId())));
     binding.addNote.setOnClickListener((v) -> Navigation.findNavController(binding.getRoot())
-        .navigate(ListFragmentDirections.showDetails(0)));
+        .navigate(NoteListFragmentDirections.showDetails(0)));
     return binding.getRoot();
   }
 
@@ -63,7 +63,7 @@ public class ListFragment extends Fragment implements MenuProvider {
             .observe(owner, (account) -> {
               if (account == null) {
                 Navigation.findNavController(binding.getRoot())
-                    .navigate(ListFragmentDirections.showPreLogin());
+                    .navigate(NoteListFragmentDirections.showPreLogin());
               }
             });
     viewModel.fetchUser();

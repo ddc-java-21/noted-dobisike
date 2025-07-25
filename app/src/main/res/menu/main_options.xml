@@ -5,6 +5,11 @@
     android:id="@+id/basic_actions"
     android:checkableBehavior="none"
     >
+    <item
+      android:id="@+id/list_fragment"
+      android:title="@string/list_fragment_label"
+      android:icon="@drawable/list"
+      android:orderInCategory="1000"/>
 
     <item
       android:id="@+id/calendar_fragment"
@@ -12,17 +17,34 @@
       android:icon="@drawable/calendar_launcher"
       android:orderInCategory="1000"/>
 
-    <item
-      android:id="@+id/reminder_fragment"
-      android:title="@string/reminder_title"
-      android:icon="@drawable/reminder"
-      android:orderInCategory="1000"/>
+
+  </group>
+
+
+  <group
+  android:id="@+id/checkable_actions"
+  android:checkableBehavior="all"
+  >
 
     <item
-      android:id="@+id/tasks_fragment"
-      android:title="@string/tasks_title"
-      android:icon="@drawable/task"
-      android:orderInCategory="1000"/>
+    android:id="@+id/reminder_fragment"
+    android:title="@string/reminder_title"
+    android:icon="@drawable/reminder"
+    android:orderInCategory="1000"/>
+
+    <item
+    android:id="@+id/tasks_fragment"
+    android:title="@string/tasks_title"
+    android:icon="@drawable/task"
+    android:orderInCategory="1000"/>
+
+  </group>
+
+
+  <group
+  android:id="@+id/profile_options"
+  android:checkableBehavior="none"
+  >
 
     <item
       android:id="@+id/settings_fragment"
