@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.noted.R;
-import edu.cnm.deepdive.noted.databinding.FragmentListBinding;
+import edu.cnm.deepdive.noted.databinding.FragmentNoteListBinding;
 import edu.cnm.deepdive.noted.view.adapter.NoteAdapter;
 import edu.cnm.deepdive.noted.viewmodel.LoginViewModel;
 import edu.cnm.deepdive.noted.viewmodel.NoteViewModel;
@@ -30,7 +30,7 @@ public class NoteListFragment extends Fragment implements MenuProvider {
   @Inject
   NoteAdapter adapter;
 
-  private FragmentListBinding binding;
+  private FragmentNoteListBinding binding;
   private NoteViewModel viewModel;
   private LoginViewModel loginViewModel;
 
@@ -38,7 +38,7 @@ public class NoteListFragment extends Fragment implements MenuProvider {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    binding = FragmentListBinding.inflate(inflater, container, false);
+    binding = FragmentNoteListBinding.inflate(inflater, container, false);
     binding.notes.setAdapter(adapter);
     adapter.setListener((note, position) -> Navigation.findNavController(binding.getRoot())
         .navigate(NoteListFragmentDirections.showDetails(note.getId())));

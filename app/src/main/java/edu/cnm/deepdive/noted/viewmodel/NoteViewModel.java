@@ -35,7 +35,7 @@ public class NoteViewModel extends ViewModel implements DefaultLifecycleObserver
   private final UserRepository userRepository;
   private final MutableLiveData<Long> noteId;
   private final LiveData<NoteWithImages> note;
-  private final MutableLiveData<User> user;
+  private final MutableLiveData<User> currentUser;
   private final LiveData<List<NoteWithImages>> notes;
   private final MutableLiveData<List<Image>> images;
   private final MutableLiveData<Uri> captureUri;
@@ -57,14 +57,18 @@ public class NoteViewModel extends ViewModel implements DefaultLifecycleObserver
     noteId = new MutableLiveData<>();
     images = new MutableLiveData<>(new ArrayList<>());
     note = setupNoteWithImages();
-    user = new MutableLiveData<>();
-    notes = Transformations.switchMap(user, noteRepository::getAll);
+    currentUser = new MutableLiveData<>();
+    notes = Transformations.switchMap(currentUser, noteRepository::getAll);
     captureUri = new MutableLiveData<>();
     editing = new MutableLiveData<>(false);
     cameraPermission = new MutableLiveData<>(false);
     visibilityFlags = setupVisibilityFlags();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
+  }
+
+  public LiveData<User> getCurrentUser() {
+    return currentUser;
   }
 
   public LiveData<Long> getNoteId() {
@@ -152,7 +156,7 @@ public class NoteViewModel extends ViewModel implements DefaultLifecycleObserver
     Single.just(note)
         .doOnSuccess((n) -> n.getImages().clear())
         .doOnSuccess((n) -> n.getImages().addAll(images.getValue()))
-        .flatMap((n) -> noteRepository.save(n, user.getValue()))
+        .flatMap((n) -> noteRepository.save(n, currentUser.getValue()))
         .subscribe(
             (n) -> noteId.postValue(n.getId()),
             this::postThrowable,
@@ -187,7 +191,7 @@ public class NoteViewModel extends ViewModel implements DefaultLifecycleObserver
     userRepository
         .getCurrentUser()
         .subscribe(
-            user::postValue,
+            currentUser::postValue,
             this::postThrowable,
             pending
         );

@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.snackbar.Snackbar;
 import edu.cnm.deepdive.noted.R;
 import edu.cnm.deepdive.noted.controller.note.NoteDetailsFragmentArgs;
-import edu.cnm.deepdive.noted.databinding.FragmentDetailsBinding;
+import edu.cnm.deepdive.noted.databinding.FragmentNoteDetailsBinding;
 import edu.cnm.deepdive.noted.model.pojo.NoteWithImages;
 import edu.cnm.deepdive.noted.service.ImageFileProvider;
 import edu.cnm.deepdive.noted.view.adapter.ImageAdapter;
@@ -39,7 +39,7 @@ public class NoteDetailsFragment extends Fragment {
   private static final String TAG = NoteDetailsFragment.class.getSimpleName();
   private static final String AUTHORITY = ImageFileProvider.class.getName().toLowerCase();
 
-  private FragmentDetailsBinding binding;
+  private FragmentNoteDetailsBinding binding;
   private NoteViewModel viewModel;
   private long noteId;
   private NoteWithImages note;
@@ -57,7 +57,7 @@ public class NoteDetailsFragment extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    binding = FragmentDetailsBinding.inflate(inflater, container, false);
+    binding = FragmentNoteDetailsBinding.inflate(inflater, container, false);
     binding.edit.setOnClickListener((v) -> viewModel.setEditing(true));
     binding.save.setOnClickListener((v) -> {
       boolean addObserver = (note.getId() == 0);

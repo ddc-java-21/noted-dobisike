@@ -18,8 +18,13 @@
     <action
       android:id="@+id/show_list"
       app:destination="@id/list_fragment"
-      app:popUpTo="@id/nav_graph"
-      />
+      app:popUpTo="@id/nav_graph">
+
+<!--      <argument-->
+<!--        android:name="note"-->
+<!--        app:argType=""-->
+
+    </action>
 
   </fragment>
 
@@ -40,7 +45,7 @@
     android:id="@+id/list_fragment"
     android:name="edu.cnm.deepdive.noted.controller.note.NoteListFragment"
     android:label="@string/list_fragment_label"
-    tools:layout="@layout/fragment_list"
+    tools:layout="@layout/fragment_note_list"
     >
 
     <action
@@ -64,7 +69,7 @@
     android:id="@+id/details_fragment"
     android:name="edu.cnm.deepdive.noted.controller.note.NoteDetailsFragment"
     android:label="@string/details_fragment_label"
-    tools:layout="@layout/fragment_details">
+    tools:layout="@layout/fragment_note_details">
 
     <argument
       android:name="note_id"
