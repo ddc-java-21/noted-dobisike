@@ -14,7 +14,7 @@ order: 0
 
 ## Summary
 
-  Noted is a note taking mobile application. Noted allows users to create notes that they would 
+Noted is a note taking mobile application. Noted allows users to create notes that they would 
 like to save and go back to so that they can review the notes that they have taken previously.
 Each user can create tasks aka todo's to add to certain dates so that they can have a list 
 of tasks that they wanted to keep track of as well that might coincide with a note or activity
@@ -42,11 +42,11 @@ or reminders.
 * The user can assign a task to a certain date
 * The user can create a title and description for a task
 * The user can add images to a note that they have created
-* The user can assign a reminder to a certain date
+* The user can assign **a reminder to a certain date
 * The user can create a title and description for a task 
 * The user can create a title and description for a reminder
 * The user can create a note and be able to assign it to a date if they choose
-* The user can edit their created tasks, reminders, or notes
+* The user can edit their created tasks, reminders, or notes**
 
 ## Persistent data
   
@@ -78,17 +78,39 @@ or reminders.
 * Image
   * Image given to note
   * Timestamp of task creation
-    
+
+
 ## Device/external services
 
 * Google cloud console
-  * [`Service`](https://console.cloud.google.com/welcome?inv=1&invt=Ab2UqQ&project=carbon-beanbag-463816-j5)
-  * Will hande user authentification for sign-in
-  * This app will be able to be used once the initial sign-in is complete, and they don't sign out
+* [`Service`](https://console.cloud.google.com/welcome?inv=1&invt=Ab2UqQ&project=carbon-beanbag-463816-j5)
+* Will hande user authentification for sign-in
+* This app will be able to be used once the initial sign-in is complete, and they don't sign out
+
+
+## State of Completion
+
+### List to get app functional
+
+* Wiring of the nav drawer functions to their respective fragments in the controller as well as the xml
+* The inflation of the tasks and reminders to show in a Linear Layout format similar to the notes in their respective layout fragments
+* Add the floating action button in both the notes and reminders xml fragment to create and add them to their Linear Layout
+* Need to implement the java wiring inflation of tasks and reminders once created in their fragments in controller
+* Can view the calendar fragments if make certain changes to what fragment gets loaded first after the login fragment
+* Wire the task and reminders to be selectable for the view of calendar so you can select none/one/both of them to see which ones for which day on the calendar
+
+### Deficiencies
+
+* Navigation drawer has to be held and slid over instead of clicking on it to open
+* Settings, Reminder and Task fragments are empty
+* Calendar created but can only be displayed after fixing wiring but not from navigation drawer
+* Can click on the reminder and task selectable square but only in certain fragments and needs to be a calendar fragment option
 
 ## Stretch goals and possible enhancements 
 
-* Add a list of completed tasks and reminders so it allows the user to go back and see them in a list format
+* Be able to add a picture to the reminders and tasks
+* Add different themes to the calendar so the user can select different colorways because of the variety of coloring the calendar widget gives
 * Add an effect once you select the completable for a task, or reminder
+* Allow the user to select the view they want to view the calendar in i.e. Day by Day, Week by Week, Month by Month or Year by Year as all are possible with this calendar widget
 * Add NASA APOD to the background of the calendar date widget matching the APOD to the date widget
 
